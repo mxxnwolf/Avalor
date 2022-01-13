@@ -1,0 +1,38 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Marketplace2_0
+    network: mumbai
+    source:
+      address: "0xccf517756715D9190411Cb6Ed194EeE31eC12ac7"
+      abi: Marketplace2_0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Paused
+        - RacerTradeEvent
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+        - Unpaused
+      abis:
+        - name: Marketplace2_0
+          file: ./abis/Marketplace2_0.json
+      eventHandlers:
+        - event: Paused(address)
+          handler: handlePaused
+        - event: RacerTradeEvent(uint8,address,address,uint256,uint256,uint256)
+          handler: handleRacerTradeEvent
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/mapping.ts

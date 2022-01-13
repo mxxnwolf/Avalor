@@ -1,0 +1,16 @@
+{
+  "name": "racer-trade-test",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ bluemonstergames/racer-trade-test",
+    "create-local": "graph create --node http://localhost:8020/ bluemonstergames/racer-trade-test",
+    "remove-local": "graph remove --node http://localhost:8020/ bluemonstergames/racer-trade-test",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 bluemonstergames/racer-trade-test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.25.2",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}
