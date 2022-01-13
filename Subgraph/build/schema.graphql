@@ -1,0 +1,11 @@
+
+type Trade @entity {
+	id: ID!
+	status: BigInt!
+	seller: Bytes!
+	buyer: Bytes!
+	price: BigInt!
+	tokenId: BigInt!
+	timestamp: BigInt!
+  }
+  
